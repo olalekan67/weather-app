@@ -1,0 +1,21 @@
+.form{
+    margin-top: 2rem;
+    text-align: center;
+}
+.form > input{
+    width: 60vw;
+    padding: 1rem;
+    border-radius: 25px 0px 0px 25px;
+    border: none;
+    outline: none;
+}
+
+.form > button{
+    width: 20vw;
+    padding: 1rem;
+    border-radius: 0px 25px 25px 0px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(116, 185, 116);
+}
