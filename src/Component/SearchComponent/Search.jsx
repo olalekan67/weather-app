@@ -19,7 +19,7 @@ const Search = (props) => {
 
     const fetch = async () => {
         if (!search) {
-            const fetchLocation = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=gusau&limit=1&appid=${import.meta.env.VITE_REACT_API_KEY}`)
+            const fetchLocation = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=gusau&limit=1&appid=${import.meta.env.VITE_REACT_API_KEY}`)
 
             const { lat, lon } = fetchLocation.data[0]
             const fetchDetails = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_REACT_API_KEY}`)
@@ -48,7 +48,7 @@ const Search = (props) => {
     const searchHandler = async (e) => {
         e.preventDefault()
         if (search) {
-            const fetchLocation = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=1&appid=${import.meta.env.VITE_REACT_API_KEY}`)
+            const fetchLocation = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=1&appid=${import.meta.env.VITE_REACT_API_KEY}`)
 
             const { lat, lon } = fetchLocation.data[0]
             const fetchDetails = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_REACT_API_KEY}`)
