@@ -11,6 +11,8 @@ const App = () => {
   const weatherHandler = (weather) => {
     setCity(weather)
   }
+
+  console.log(import.meta.env.VITE_REACT_API_KEY);
   return (
     <div className='main-div'>
       <Search weatherHandler={weatherHandler} className='search'/>

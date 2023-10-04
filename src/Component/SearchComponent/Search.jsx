@@ -4,7 +4,6 @@ import styles from './Search.module.css'
 
 const Search = (props) => {
     const [search, setSearch] = useState('')
-    const KEY = '6f4390c64f0e13efe84b19b1120f50fd'
     let weather = {
         location: '',
         description: '',
@@ -20,10 +19,10 @@ const Search = (props) => {
 
     const fetch = async () => {
         if (!search) {
-            const fetchLocation = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=gusau&limit=1&appid=${KEY}`)
+            const fetchLocation = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=gusau&limit=1&appid=${import.meta.env.VITE_REACT_API_KEY}`)
 
             const { lat, lon } = fetchLocation.data[0]
-            const fetchDetails = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${KEY}`)
+            const fetchDetails = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_REACT_API_KEY}`)
             weather.country = fetchDetails.data.sys.country
             weather.location = `${fetchDetails.data.name}, ${weather.country}`
             weather.humidity = fetchDetails.data.main.humidity
@@ -49,10 +48,10 @@ const Search = (props) => {
     const searchHandler = async (e) => {
         e.preventDefault()
         if (search) {
-            const fetchLocation = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=1&appid=${KEY}`)
+            const fetchLocation = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=1&appid=${import.meta.env.VITE_REACT_API_KEY}`)
 
             const { lat, lon } = fetchLocation.data[0]
-            const fetchDetails = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${KEY}`)
+            const fetchDetails = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_REACT_API_KEY}`)
             weather.country = fetchDetails.data.sys.country
             weather.location = `${fetchDetails.data.name}, ${weather.country}`
             weather.humidity = fetchDetails.data.main.humidity
