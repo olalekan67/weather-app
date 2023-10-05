@@ -22,7 +22,6 @@
 
 @media(max-width: 600px){
     .form{
-        border: 1px solid black;
         width: 90vw;
     }
 }
